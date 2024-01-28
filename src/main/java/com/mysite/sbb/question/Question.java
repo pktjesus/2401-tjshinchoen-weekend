@@ -23,6 +23,6 @@ public class Question {
     private String content; // 내용
     private LocalDateTime createDate;   // 작성날짜
 
-    @OneToMany(mappedBy = "question")
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
     private List<Answer> answerList;
 }
