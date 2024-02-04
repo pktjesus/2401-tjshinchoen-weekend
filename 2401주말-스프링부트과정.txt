@@ -1,0 +1,29 @@
+온라인 책 주소: https://wikidocs.net/book/7601
+강의 git 주소: https://github.com/pktjesus/2401-tjshinchoen-weekend
+\\192.168.100.34
+
+jdk17주소: https://jdk.java.net/archive/ -> 17.0.2 (build 17.0.2+8)
+
+spring(java) vs structs(java)
+maven(xml) vs gradle(groovy)
+
+자바: 프로그래밍 언어
+  - version : 1.0 ~ 22.0
+스프링: java를 이용한 프레임워크(라이브러리 + java)
+  - version: 1.0.0 ~ 6.0.0
+  xml설정 -> xml지옥
+스프링부트: 스프링을 이용해서 아주 쉽게 라이브러리를 이용할 수 있게 해주는 도구, 모음
+  - version. 1.0.0~(스프링 3.0.0~ 1.2~), 2.0.0(스프링 5, 자바: 1.8~), 3.0.0~(스프링 6.0.0~, 자바: 17~)
+  xml설정 -> xml천국
+    -> json
+스프링부트 웹프론트 -> jsp -> thymeleaf, mustache etc...
+
+* 스프링부트을 이용한다는 것은 스프링에서 사용하는 annotation들을 사용하는 것.
+
+
+http method: get(select), post(insert), put(update), delete(delete), patch etc...
+  -> 단지 method pseudocode
+api 테스트툴: curl, postman etc...
+
+- selenium python 내용
+https://docs.google.com/presentation/d/1QHwVeTXtx0vWp1ZSlcsaG0B9hIW6yBaSnB-KH84iiYg/edit#slide=id.g2b5af6409e4_0_10
