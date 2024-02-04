@@ -23,6 +23,6 @@ public class Question {
     private String content; // 내용
     private LocalDateTime createDate;   // 작성날짜
 
-    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE)
+    @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) // -> default fetch-type lazy -> 지연 로딩
     private List<Answer> answerList;
 }
