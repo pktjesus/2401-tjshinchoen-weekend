@@ -7,6 +7,8 @@ import com.mysite.sbb.answer.Answer;
 import com.mysite.sbb.answer.AnswerRepository;
 import com.mysite.sbb.question.Question;
 import com.mysite.sbb.question.QuestionRepository;
+import com.mysite.sbb.question.QuestionService;
+import com.mysite.sbb.user.UserService;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -22,6 +24,9 @@ class SbbApplicationTests {
 	private QuestionRepository questionRepository;
 	@Autowired
 	private AnswerRepository answerRepository;
+
+	@Autowired
+	private QuestionService questionService;
 
 	@Test
 	void contextLoads() {
@@ -158,5 +163,20 @@ class SbbApplicationTests {
 
 		assertEquals(1, answerList.size());
 		assertEquals("네 자동으로 생성됩니다.", answerList.get(0).getContent());
+	}
+
+	@Test
+	void testInsertJpa() {
+		for(int i = 1; i <= 300; i++) {
+			this.questionService.create("테스트 데이터입니다:[" + i + "]", "내용무");
+		}
+	}
+
+	@Autowired
+	private UserService userService;
+
+	@Test
+	void testBCryptoPassword() {
+		this.userService.create("test1", "test1@abc.com", "1234");
 	}
 }

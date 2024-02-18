@@ -7,6 +7,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.List;
 // version 2.7이하 -> import javax.persistence.Entity;
 
@@ -24,5 +25,5 @@ public class Question {
     private LocalDateTime createDate;   // 작성날짜
 
     @OneToMany(mappedBy = "question", cascade = CascadeType.REMOVE) // -> default fetch-type lazy -> 지연 로딩
-    private List<Answer> answerList;
+    private List<Answer> answerList = new ArrayList<>();
 }

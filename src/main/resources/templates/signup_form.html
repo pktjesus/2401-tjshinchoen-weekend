@@ -1,0 +1,28 @@
+<html lang="ko" layout:decorate="~{layout}">
+<div layout:fragment="content" class="container my-3">
+    <div class="my-3 border-bottom">
+        <div>
+            <h4>회원가입</h4>
+        </div>
+    </div>
+    <form th:action="@{/user/signup}" method="post" class="my-3" th:object="${userCreateForm}">
+        <div th:replace="~{form_errors :: formErrorsFragment}"></div>
+        <div class="mb-3">
+            <label for="username" class="form-label">사용자ID</label>
+            <input type="text" th:field="*{username}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="password1" class="form-label">비밀번호</label>
+            <input type="password" th:field="*{password1}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="password2" class="form-label">비밀번호 확인</label>
+            <input type="password" th:field="*{password2}" class="form-control">
+        </div>
+        <div class="mb-3">
+            <label for="email" class="form-label">이메일</label>
+            <input type="email" th:field="*{email}" class="form-control">
+        </div>
+        <input type="submit" value="회원가입" class="btn btn-primary my-2">
+    </form>
+</div>

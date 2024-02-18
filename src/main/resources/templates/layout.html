@@ -7,6 +7,10 @@
     <link rel="stylesheet" type="text/css" th:href="@{/style.css}" />
 </head>
 <body>
+    <!-- navigation bar -->
+    <nav th:replace="~{navbar :: navbarFragment}"></nav>
     <th:block layout:fragment="content"></th:block>
+    <!-- Bootstrap JS -->
+    <script th:src="@{/bootstrap.min.js}"></script>
 </body>
 </html>
