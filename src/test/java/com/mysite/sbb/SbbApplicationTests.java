@@ -168,7 +168,7 @@ class SbbApplicationTests {
 	@Test
 	void testInsertJpa() {
 		for(int i = 1; i <= 300; i++) {
-			this.questionService.create("테스트 데이터입니다:[" + i + "]", "내용무");
+			this.questionService.create("테스트 데이터입니다:[" + i + "]", "내용무", null);
 		}
 	}
 
