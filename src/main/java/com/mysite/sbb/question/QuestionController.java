@@ -26,10 +26,14 @@ public class QuestionController {
     private final UserService userService;
 
     @GetMapping("/list")
-    public String list(Model model, @RequestParam(value = "page", defaultValue = "0") int page) {
-        Page<Question> paging = questionService.getList(page);
+    public String list(Model model
+            , @RequestParam(value = "page", defaultValue = "0") int page
+            , @RequestParam(value = "kw", defaultValue = "") String kw
+    ) {
+        Page<Question> paging = questionService.getList(page, kw);
         //model.addAttribute("questionList", questionList);   // thylemeaf에 데이터를 전달하는 방법
         model.addAttribute("paging", paging);
+        model.addAttribute("kw", kw);
 
         return "question_list";
     }
