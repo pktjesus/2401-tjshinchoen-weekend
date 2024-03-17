@@ -30,16 +30,16 @@
 	    <div class="row" id="search-result">
 			<!-- 검색 이미지 결과 화면 -->
             <div class="col-md-8">
-                <img id="wish-image" style="width: 100%; height: 100%;" src="https://d12zq4w4guyljn.cloudfront.net/750_750_20240209035512_photo1_0c59afeb9a10.jpg" alt="검색결과 이미지"/>
+                <img id="wish-image" style="width: 100%; height: 100%;" v-bind:src="search_result.imageLink" alt="검색결과 이미지"/>
             </div>
             <!-- 검색 텍스트 결과 화면 -->
             <div class="col-md-4">
                 <ul class="list-group list-group-flush">
-                    <li class="list-group-item" id="wish-title">test1</li>
-                    <li class="list-group-item" id="wish-category">test2</li>
-                    <li class="list-group-item" id="wish-jibun-address">test3</li>
-                    <li class="list-group-item" id="wish-road-address">test4</li>
-                    <li class="list-group-item" id="wish-hompage"><a href="" target="_blank">홈페이지</a></li>
+                    <li class="list-group-item" id="wish-title">{{ search_result.title }}</li>
+                    <li class="list-group-item" id="wish-category">{{ search_result.category }}</li>
+                    <li class="list-group-item" id="wish-jibun-address">{{ search_result.jibunAddress }}</li>
+                    <li class="list-group-item" id="wish-road-address">{{ search_result.roadAddress }}</li>
+                    <li class="list-group-item" id="wish-hompage"><a v-bind:href="search_result.homepageLink" target="_blank">홈페이지</a></li>
                 </ul>
                 <button id="wish-button" type="button" class="btn btn-primary" style="position: absolute; bottom: 0px; width:100%;">위시리스트 추가</button>
             </div>
@@ -55,22 +55,22 @@
 		
 		<!-- 나의 맛집리스트 영역 -->
 	    <div id="wish-list-result">
-			<div class="row" style="margin-top: 20px;">
+			<div v-for="(wish, idx) in wish_list" class="row" style="margin-top: 20px;">
 				<!-- 위시리스트 이미지 화면 -->
 	            <div class="col-md-8">
-	                <img style="width: 100%; height: 100%;" src="https://d12zq4w4guyljn.cloudfront.net/750_750_20240209035512_photo1_0c59afeb9a10.jpg" alt="위시리스트 이미지"/>
+	                <img style="width: 100%; height: 100%;" v-bind:src="wish.imageLink" alt="위시리스트 이미지"/>
 	            </div>
 	            <!-- 위시리스트 텍스트 화면 -->
 	            <div class="col-md-4">
 	            	<ul class="list-group list-group-flush">
-	                	<li class="list-group-item">장소: </li>
-	                	<li class="list-group-item">Category: </li>
-	                    <li class="list-group-item">지번주소: </li>
-	                    <li class="list-group-item">도로명주소: </li>
-	                    <li class="list-group-item">방명여부: </li>
-	                    <li class="list-group-item">방명여부: </li>
-	                    <li class="list-group-item">방문횟수: </li>
-	                    <li class="list-group-item"><a href="" target="_blank">홈페이지</a></li>
+	                	<li class="list-group-item">장소: {{ wish.title }}</li>
+	                	<li class="list-group-item">Category: {{ wish.category }}</li>
+	                    <li class="list-group-item">지번주소: {{ wish.jibunAddress }}</li>
+	                    <li class="list-group-item">도로명주소: {{ wish.roadAddress }}</li>
+	                    <li class="list-group-item">방명여부: {{ wish.visit }} </li>
+	                    <li class="list-group-item">방명횟수: {{ wish.visitCount }}</li>
+	                    <li class="list-group-item">마지막 방문 시간: {{ wish.lastVisitDate | yyyyMMddHHmmss }}</li>
+	                    <li class="list-group-item"><a v-bind:href="wish.homepageLink" target="_blank">홈페이지</a></li>
 	                </ul>
 	
 	                <button type="button" class="btn btn-primary" style="width:100%; ">방문 추가</button>
@@ -81,4 +81,7 @@
 		</div>
 	</div>	    
 </body>
+<script src="/js/main.js">
+	
+</script>
 </html>
